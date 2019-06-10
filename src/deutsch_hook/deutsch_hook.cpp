@@ -1,3 +1,5 @@
+// This file is part of the Prject 'Deutsche Tastatur'
+// Copyright (c) 2013-2019 Vsevolod Lukyanin
 #include "stdafx.h"
 
 HHOOK gl_hkb=0;
@@ -65,7 +67,7 @@ static bool GetCodeMeaning( DWORD code, WCHAR& symbol, int& app_cmd, int& modifi
 {
 	switch( code )
 	{
-		case '1': 
+		case '1':
 			if( IsShift() )
 				symbol = L'\xA1'; // espanol up-side-down (!)
 			else
@@ -82,7 +84,7 @@ static bool GetCodeMeaning( DWORD code, WCHAR& symbol, int& app_cmd, int& modifi
 		case 'A': symbol = IsShift()? 196 : 228; break;
 		case 'N': symbol = IsShift()? 209 : 241; break;
 		case 'S': symbol = 223; break;
-		case 'L': symbol = L'\xA3'; break; // pound 
+		case 'L': symbol = L'\xA3'; break; // pound
 
 			// multimedia
 		case VK_OEM_4: app_cmd = APPCOMMAND_VOLUME_DOWN; break; //   0xDB  //  '[{' for US
@@ -118,7 +120,8 @@ bool KeyboardHandler(int code, WPARAM wParam, LPARAM lParam)
 		return false;
 	KBDLLHOOKSTRUCT * kbs=(KBDLLHOOKSTRUCT*) lParam;
 
-/*	char bfr[100];
+/*
+	char bfr[100];
 	LPCSTR pMsg;
 	char msgbfr[20];
 	switch (wParam)

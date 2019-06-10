@@ -1,12 +1,9 @@
-// dllmain.cpp: определяет точку входа для приложения DLL.
+// dllmain.cpp: entry point of DLL
 #include "stdafx.h"
 
 HINSTANCE gl_hInstance;
 
-BOOL APIENTRY DllMain( HMODULE hModule,
-                       DWORD  ul_reason_for_call,
-                       LPVOID lpReserved
-					 )
+BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)
 {
 	switch (ul_reason_for_call)
 	{

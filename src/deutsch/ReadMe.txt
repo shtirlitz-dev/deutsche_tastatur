@@ -23,3 +23,11 @@ Additional possibilities:
 
 
 /////////////////////////////////////////////////////////////////////////////
+
+Ideas to implement:
+ * French letters (see http://www.study-languages-online.com/ru/fr/phonetics/french-written-language)
+   * Æ æ (198, 230)
+   * Ç ç (199, 231)
+   * Ë ë (203, 235)
+   * Ï ï (207, 239)
+

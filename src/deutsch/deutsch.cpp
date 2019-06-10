@@ -1,3 +1,5 @@
+// This file is part of the Prject 'Deutsche Tastatur'
+// Copyright (c) 2013-2019 Vsevolod Lukyanin
 #include "stdafx.h"
 #include "shellapi.h"
 #include "deutsch.h"
@@ -18,17 +20,17 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 
 	wcex.cbSize = sizeof(WNDCLASSEX);
 
-	wcex.style			= CS_HREDRAW | CS_VREDRAW;
-	wcex.lpfnWndProc	= WndProc;
-	wcex.cbClsExtra		= 0;
-	wcex.cbWndExtra		= 0;
-	wcex.hInstance		= hInstance;
-	wcex.hIcon			= LoadIcon(hInstance, MAKEINTRESOURCE(IDI_KB_HOOK));
-	wcex.hCursor		= LoadCursor(NULL, IDC_ARROW);
-	wcex.hbrBackground	= (HBRUSH)(COLOR_BTNFACE+1);
-	wcex.lpszMenuName	= 0;
-	wcex.lpszClassName	= gl_WindowClass;
-	wcex.hIconSm		= wcex.hIcon;
+	wcex.style          = CS_HREDRAW | CS_VREDRAW;
+	wcex.lpfnWndProc    = WndProc;
+	wcex.cbClsExtra     = 0;
+	wcex.cbWndExtra     = 0;
+	wcex.hInstance      = hInstance;
+	wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_KB_HOOK));
+	wcex.hCursor        = LoadCursor(NULL, IDC_ARROW);
+	wcex.hbrBackground  = (HBRUSH)(COLOR_BTNFACE+1);
+	wcex.lpszMenuName   = 0;
+	wcex.lpszClassName  = gl_WindowClass;
+	wcex.hIconSm        = wcex.hIcon;
 
 	return RegisterClassEx(&wcex);
 }
@@ -45,14 +47,11 @@ bool InitHookDll()
 		return false;
 	(FARPROC&)   InstallHook=GetProcAddress(gl_kb_hook, "InstallHook");
 	(FARPROC&) UninstallHook=GetProcAddress(gl_kb_hook, "UninstallHook");
-	
+
 	return !!InstallHook && !!UninstallHook;
 }
 
-int APIENTRY _tWinMain(HINSTANCE hInstance,
-					   HINSTANCE hPrevInstance,
-					   LPTSTR    lpCmdLine,
-					   int       nCmdShow)
+int APIENTRY _tWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
 {
 	gl_hInstance = hInstance;
 	if(!InitHookDll())
@@ -87,13 +86,13 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 void OnCreate(HWND hWnd)
 {
-	NotifyData.cbSize=sizeof(NOTIFYICONDATA); 
-	NotifyData.hWnd=hWnd; 
+	NotifyData.cbSize=sizeof(NOTIFYICONDATA);
+	NotifyData.hWnd=hWnd;
 	NotifyData.uID=1968;
-	NotifyData.uFlags=NIF_ICON|NIF_MESSAGE|NIF_TIP; 
-	NotifyData.uCallbackMessage=WM_NOTIFYICON; 
+	NotifyData.uFlags=NIF_ICON|NIF_MESSAGE|NIF_TIP;
+	NotifyData.uCallbackMessage=WM_NOTIFYICON;
 	NotifyData.hIcon=LoadIcon(gl_hInstance, MAKEINTRESOURCE(IDI_KB_HOOK));
-	::GetWindowText(hWnd, NotifyData.szTip, sizeof(NotifyData.szTip)); 
+	::GetWindowText(hWnd, NotifyData.szTip, sizeof(NotifyData.szTip));
 	Shell_NotifyIcon(NIM_ADD, &NotifyData);
 }
 
