@@ -5,6 +5,7 @@ allows typing, in English keyboard layout:
 * characters of some other European languages (ÀÁÂÃ...ñ¡¿)
 * special symbols (¹²³°€£©®)
 * and even control multimedia!
+
 The Right Alt key is used as modifier in English keyboard layout
 
 ## Required Windows version:
@@ -13,6 +14,7 @@ The Right Alt key is used as modifier in English keyboard layout
 ## Usage
 ### Start:
 Simply run deutsch.exe
+
 No windows appear, you can only see the program icon (showing German tricolour flag)
 in the System Notification Area (right bottom corner, near to system watch)
 Now you can type additional characters on you keyboard!
@@ -54,6 +56,7 @@ In order to type... | ...do so
 
 N.B. 1. Some applications don't allow input like Right Alt + <Key>.
 In this case you can use alternative method: First press and leave Right Alt, then press the <Key>, for example, Shift + A
+
 N.B. 2. The keys '-', '+', '^', '~' are those on the upper row, also known as '_', '=', '6' and '`'
 
 #### Multimedia control:
