@@ -1,0 +1,9 @@
+; kb_proc.def 
+
+LIBRARY      "deutsch_hook"
+
+EXPORTS
+    ; Explicit exports can go here
+	InstallHook
+	UninstallHook
+
